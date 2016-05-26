@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Options for Github PR Monitor</title>
+  <script src="lib/jquery.js"></script>
+  <script src="lib/vex/vex.combined.min.js"></script>
+  <script type="text/javascript" src="config.js"></script>
+  <script type="text/javascript" src="options.js"></script>
+  <link rel="stylesheet" type="text/css" href="lib/vex/vex-theme-os.css">
+  <link rel="stylesheet" type="text/css" href="lib/vex/vex.css">
+  <link rel="stylesheet" type="text/css" href="styles/options.css">
+</head>
+<body>
+<div class="title">
+  <h1>Github Pull Request Monitor Options</h1>
+</div>
+<div class="optionWrapper">
+
+  <div class="deleteWrapper">
+    <h3>Github API Key</h3>
+    <input class="git-repo" id="githubAPIKey" type="text">
+    <button class="delete reset" type="button">Reset</button>
+  </div>
+
+  <div class="deleteWrapper">
+    <h3>Github Username</h3>
+    <input class="git-repo" id="githubUsername" type="text">
+    <button class="delete reset" type="button">Reset</button>
+  </div>
+
+  <div class="deleteWrapper">
+    <h3>Github Password</h3>
+    <input class="git-repo" id="githubPassword" type="password">
+    <button class="delete reset" type="button">Reset</button>
+  </div>
+
+  <div>
+    <button id="manageReposBtn" type="button">Manage Repos</button>
+
+    <div class="repos-list">
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

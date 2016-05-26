@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+
+  "name": "Github PR monitor",
+  "description": "Monitor Pull Requests from Github repositories you care about.",
+  "version": "1.0",
+
+//  "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "scripts": [
+      "lib/jquery.js",
+      "lib/GitHub.bundle.min.js",
+      "config.js",
+      "background.js"
+    ]
+  },
+
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
