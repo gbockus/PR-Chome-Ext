@@ -1,0 +1,57 @@
+
+body {
+    font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+    font-size: 100%;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin: 0;
+}
+
+.main,
+.manage-ctr {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: scroll;
+    padding: 8px;
+}
+
+.manage-ctr {
+    display: none;
+}
+
+.loading {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url(chrome-extension://__MSG_@@extension_id__/images/loader.gif);
+    background-size: contain;
+    background-position: center center;
+    display: none;
+    background-color: white;
+}
+
+table {
+    width: 100%;
+}
+
+.checkbox-ctr {
+    width: 25px;
+}
+
+input[type="checkbox"] {
+    width: 2em;
+    height: 2em;
+}
+
+.repo-name-ctr {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+}
