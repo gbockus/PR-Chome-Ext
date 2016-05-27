@@ -10,6 +10,16 @@ body {
   width: 400px;
 }
 
+.optionWrapper input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  min-height: 20px;
+  background: none;
+  cursor: pointer;
+}
+
 .git-repo,.project-id{
   margin-right: 0.8%;
 }

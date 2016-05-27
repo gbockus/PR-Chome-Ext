@@ -6,8 +6,7 @@ function showManage() {
 function showMain() {
   $('.main').show();
   $('.manage-ctr').hide();
-  showLoading();
-  chrome.runtime.sendMessage({getPRs: true});
+  refreshPRs();
 }
 
 function manageRepos() {
@@ -29,19 +28,13 @@ function getFormattedDate(dateStr) {
 }
 
 function getChangedCls(oldList, newList, repo, title) {
-  console.log('getChangedCls');
   let oldItem = _.find(oldList, {'repoName': repo});
   let newItem = _.find(newList, {'repoName': repo});
-  console.log(oldItem);
-  console.log(newItem);
   if (oldItem && newItem) {
-    console.log('foundItems');
     let oldPr = _.find(oldItem.prs, {'title': title});
     let newPr = _.find(newItem.prs, {'title': title});
     if (oldPr && newPr) {
-      console.log('found prs');
       if (_.isEqual(oldPr, newPr)) {
-        console.log('same');
         return '';
       }
     }
@@ -129,7 +122,6 @@ function showRepos() {
           checked = event.currentTarget.checked;
         getChromeStorage(config.selectedRepos)
           .then((repos) => {
-            console.log(repos, 'selectedRepos');
             repos = repos || [];
             if (checked) {
               repos.push(repoName);
@@ -147,10 +139,22 @@ function showRepos() {
 
 }
 
+function refreshPRs() {
+  showLoading();
+  chrome.runtime.sendMessage({getPRs: true});
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   $('#manageRepos').on('click', manageRepos);
   $('#goHome').on('click', showMain);
+  $('#refreshPRs').on('click', refreshPRs);
   updatePRs();
+  chrome.browserAction.setIcon({path: config.oldIcon});
+
+  $('body').on('click', 'a', function(){
+    chrome.tabs.create({url: $(this).attr('href')});
+    return false;
+  });
 });
 
 chrome.runtime.onMessage.addListener((request) => {
