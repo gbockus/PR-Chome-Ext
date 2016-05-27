@@ -10,26 +10,30 @@
   <link rel="stylesheet" type="text/css" href="styles/popup.css">
 
   <script src="lib/jquery.js"></script>
+  <script src="lib/lodash.min.js"></script>
+  <script src="lib/moment.min.js"></script>
   <script src="config.js"></script>
   <script src="popup.js"></script>
 </head>
 <body>
 <div class="main">
-  <h3>Main</h3>
-  <button id="manageRepos">Manage Repos</button>
+  <div class="pr-tbar">
+    <h3>Main</h3>
+    <div class="flex-it"></div>
+    <button id="manageRepos"></button>
+  </div>
+  <div class="prs-ctr">
+
+  </div>
 
 </div>
 <div class="manage-ctr">
-
-  <h3>Manage</h3>
-  <button id="goHome">Home</button>
-
-  <div class="org-repos">
-
+  <div class="pr-tbar">
+    <h3>Settings</h3>
+    <div class="flex-it"></div>
+    <button id="goHome"></button>
   </div>
-  <!--<div class="personal-repos">-->
-    <!--<h4>Personal Repositories</h4>-->
-  <!--</div>-->
+  <div class="org-repos"></div>
 
 </div>
 

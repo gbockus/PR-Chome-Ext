@@ -41,7 +41,6 @@ function _initField(selector, key, placeholder) {
   $reset.click(() => {
     removeChromeStorage(key);
     $reset.prop('disabled', true);
-    toggleError(true);
     $input.val('');
   });
 }
@@ -50,5 +49,6 @@ $(document).ready(function() {
   _initField('#githubAPIKey', config.githubApiKey, 'Github APIKey');
   _initField('#githubUsername', config.githubUserName, 'Github UserName');
   _initField('#githubPassword', config.githubPassword, 'Github Password');
+  _initField('#interval', config.interval, config.defaultInterval);
 
 });
