@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/gbockus/PR-Chome-Ext/issues"
   },
-  "homepage": "https://github.com/gbockus/PR-Chome-Ext#readme"
+  "homepage": "https://github.com/gbockus/PR-Chome-Ext#readme",
+  "dependencies": {
+    "lodash": "^4.13.1",
+    "moment": "^2.13.0"
+  }
 }

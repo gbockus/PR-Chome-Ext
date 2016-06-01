@@ -9,6 +9,14 @@ function removeChromeStorage(key) {
   chrome.storage.local.remove(key);
 }
 
+/**
+ * Utility for setting up a text input.
+ * @param selector - The css selector.
+ * @param key - The key where the associated data should be saved.
+ * @param placeholder - The placeholder value.
+ *
+ * @private
+ */
 function _initField(selector, key, placeholder) {
   const $input = $(selector);
   const $reset = $input.next('.reset');
@@ -41,14 +49,26 @@ function _initField(selector, key, placeholder) {
   $reset.click(() => {
     removeChromeStorage(key);
     $reset.prop('disabled', true);
-    toggleError(true);
     $input.val('');
   });
 }
 
+/**
+ * Wire up the fields on the options page.
+ */
 $(document).ready(function() {
   _initField('#githubAPIKey', config.githubApiKey, 'Github APIKey');
   _initField('#githubUsername', config.githubUserName, 'Github UserName');
   _initField('#githubPassword', config.githubPassword, 'Github Password');
+  _initField('#interval', config.interval, config.defaultInterval);
+
+  getChromeStorage(config.useCreated)
+    .then((useCreated) => {
+      $('#createCheckbox').prop('checked', !!useCreated);
+    });
+
+  $('#createCheckbox').click(function() {
+    setChromeStorage(config.useCreated, $('#createCheckbox').prop('checked'));
+  });
 
 });

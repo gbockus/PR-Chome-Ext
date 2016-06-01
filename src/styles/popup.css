@@ -1,57 +1,237 @@
 
 body {
-    font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-    font-size: 100%;
-    width: 300px;
-    height: 300px;
-    position: relative;
-    margin: 0;
+  font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+  font-size: 100%;
+  width: 600px;
+  height: 400px;
+  position: relative;
+  margin: 0;
 }
 
 .main,
 .manage-ctr {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: scroll;
-    padding: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: scroll;
+}
+
+h3 {
+  margin: 15px 8px 8px;
+}
+
+h4 {
+  margin: 0;
+  padding: 8px 8px;
+}
+
+button, 
+.search-btn {
+  background-color: white;
+  outline: none;
+  border: none;
+  background-color: #dadada;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+button {
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #999;
+  background-color: #dadada;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+button:hover {
+  background-color: #c0c0c0;
+}
+
+.search-btn {
+  width: 25px;
+  height: 25px;
+  background-image: url(chrome-extension://__MSG_@@extension_id__/images/search.png);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 8px 8px 8px 0;
+}
+.search-input {
+  height: 25px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.org-tbar {
+  flex-direction: row;
+  display: flex;
+  border-bottom: 1px solid #999;
+}
+
+.pr-tbar {
+  flex-direction: row;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  border-bottom: 1px solid #666;
+}
+
+.flex-it {
+  flex: 1;
+}
+
+.pr-ctr {
+  flex-direction: row;
+  display: flex;
+  margin: 2px 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.pr-ctr:hover {
+  background-color: #E0E0E0;
+}
+
+.pr-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
+}
+.pr-img {
+  width: 50px;
+  height: 50px;
+  margin: 4px;
+}
+
+.pr-sub {
+  color: #767676;
+  font-size: 12px;
+  flex-direction: row;
+  display: flex;
+}
+
+.pr-username {
+  flex: 1;
+}
+
+.pr-changed {
+  background-color: #d3ffe0;
+}
+
+.pr-deets {
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 4px;
+}
+
+input[type="search"] {
+  width: 250px;
+  margin: 8px 0 8px;
+  outline: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .manage-ctr {
-    display: none;
+  display: none;
 }
 
 .loading {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-image: url(chrome-extension://__MSG_@@extension_id__/images/loader.gif);
-    background-size: contain;
-    background-position: center center;
-    display: none;
-    background-color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image:  url(chrome-extension://__MSG_@@extension_id__/images/gears.gif);
+  background-size: contain;
+  background-position: center center;
+  display: none;
+  background-color: white;
+  background-repeat: no-repeat;
 }
 
+
+#manageRepos {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/images/edit.png);
+}
+
+#goHome{
+  background-image: url(chrome-extension://__MSG_@@extension_id__/images/home.png);
+}
+
+#refreshPRs {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/images/refresh.png);
+}
+
+.org-ctr {
+  margin: 8px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  position: relative;
+}
 table {
-    width: 100%;
+  width: 100%;
+  padding: 4px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+tr:hover {
+  background-color: #dadada;
 }
 
 .checkbox-ctr {
-    width: 25px;
+  width: 25px;
 }
 
 input[type="checkbox"] {
-    width: 2em;
-    height: 2em;
+  width: 2em;
+  height: 2em;
 }
 
 .repo-name-ctr {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 500px;
+  margin-left: 8px;
+}
+
+.prs-ctr,
+.org-repos {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 52px;
+  overflow: scroll;
+}
+
+.prs-ctr h4 {
+  padding: 8px 8px;
+  border-bottom: 1px solid #999;
+  border-top: 1px solid #999;
+  margin: 8px 0 4px;
+  background-color: #dadada
+}
+
+.prs-ctr h4:first-child {
+  margin-top: 0;
+  border-top: none;
 }
