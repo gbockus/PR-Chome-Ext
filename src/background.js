@@ -104,14 +104,20 @@ function processPRs(prList, useCreated) {
  */
 function getPRs(force) {
   let currentPrs, useCreatedFlag;
-  return Promise.all([
-    getGH(),
-    getChromeStorage(config.githubUserName),
-    getChromeStorage(config.prs),
-    getChromeStorage(config.useCreated),
-    getChromeStorage(config.selectedRepos)
-  ]).then(([gh, username, prs, useCreated, selectedRepos = []]) => {
-    let prPromises = [];
+
+  return getGH()
+  .then((gh) => {
+    return Promise.all([
+      gh,
+      gh.getUser().getProfile(),
+      getChromeStorage(config.prs),
+      getChromeStorage(config.useCreated),
+      getChromeStorage(config.selectedRepos)
+      ]);
+  })
+  .then(([gh, profile, prs, useCreated, selectedRepos = []]) => {
+    let prPromises = [],
+      username = profile.data.login;
     currentPrs = prs;
     useCreatedFlag = !!useCreated;
 
