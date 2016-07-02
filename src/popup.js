@@ -164,7 +164,11 @@ chrome.runtime.onMessage.addListener((request) => {
         hideLoading();
       });
   } else if (request.prsUpdated) {
-    updatePRs();
+    updatePRs()
+      .then(()=>{
+        hideLoading();
+      });
+
   }
 });
 
