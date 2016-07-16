@@ -14,10 +14,7 @@ function getGH() {
       let ghObj = {};
       if (token) {
         ghObj.token = token;
-      } else if (username && password) {
-        ghObj.username = username;
-        ghObj.password = password;
-      }
+      } 
       // basic auth
       return new GitHub(ghObj);
     });
