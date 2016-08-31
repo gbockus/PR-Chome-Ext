@@ -58,8 +58,6 @@ function _initField(selector, key, placeholder) {
  */
 $(document).ready(function() {
   _initField('#githubAPIKey', config.githubApiKey, 'Github APIKey');
-  _initField('#githubUsername', config.githubUserName, 'Github UserName');
-  _initField('#githubPassword', config.githubPassword, 'Github Password');
   _initField('#interval', config.interval, config.defaultInterval);
 
   getChromeStorage(config.useCreated)
